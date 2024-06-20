@@ -81,7 +81,7 @@ const villainData = async (id) => {
 
         <h3>VS.</h3>
 
-        {villainExists && (
+        {villainExists ?  
           <>
             <h3>{villainName}</h3>
             <ul>
@@ -93,8 +93,9 @@ const villainData = async (id) => {
               </li>
             </ul>
           </>
-        )}
-
+        :
+        <img src={"src/assets/images/question-mark.jpg"} alt="big-questionmark" width="300px" height="300px"/>
+        }
 
     </>
 
