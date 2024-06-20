@@ -18,7 +18,9 @@ const FightTeam = () => {
                 )
             })}
         </ol>
-
+        {superheroTeam.length === 4 && (
+            <button>ready</button>
+        )}
     </>
 
   )

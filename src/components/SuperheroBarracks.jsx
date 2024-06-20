@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const SuperheroDB = () => {
+const SuperheroBarracks = () => {
 
     //Using useNavigate instance to send superhero data through route parameter
     const navigate = useNavigate();
@@ -23,21 +23,15 @@ const SuperheroDB = () => {
   return (
 
     <>
-        <h1>SuperHero Database</h1>
+        <h1>SuperHero Barracks</h1>
         <h3>Total SuperHeroes: {superheroes.length}</h3>
         <ul>
         {superheroes.map((superhero)=>{
             return(
                 <li key={superhero.id}>
                     <dt>{superhero.superName}</dt>
-                    <dd>Civilian Name: {superhero.firstName} {superhero.lastName}</dd>
-                    <button onClick={()=> navigate(`/superherodb/${superhero.id}`)}>details</button>
-
-                    <dd>Power: {superhero.superPower}</dd>
-                    <dd>Strength: {superhero.strength}</dd>
-                    <dd>Team: {superhero.isTeam ? "Team Player" : "Solo"}</dd>
-                    <dd>Villain: {superhero.villainName}</dd>
                     <button onClick={()=> addHeroToTeam(superhero)} disabled={superheroTeam.length === 4}>+</button>
+                    <button onClick={()=> navigate(`/superherobarracks/${superhero.id}`)}>details</button>
                 </li>
             )
         })}
@@ -47,4 +41,4 @@ const SuperheroDB = () => {
   )
 }
 
-export default SuperheroDB;
+export default SuperheroBarracks;
