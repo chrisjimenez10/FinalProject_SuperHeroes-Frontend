@@ -39,7 +39,13 @@ const SuperheroBarracks = () => {
     <>
         <h1>SuperHero Barracks</h1>
         <h3>Total SuperHeroes: {superheroes.length}</h3>
-        <ul>
+
+        <button onClick={()=> handleRenderForm()}>new superhero</button>
+        {renderForm === "form" && (
+            <Form />
+        )}
+
+        <ul style={{listStyleImage: "url(src/assets/images/list-supericon.png)"}}>
         {superheroes.map((superhero)=>{
             return(
                 <li key={superhero.id}>
@@ -50,10 +56,7 @@ const SuperheroBarracks = () => {
             )
         })}
         </ul>
-        <button onClick={()=> handleRenderForm()}>new superhero</button>
-        {renderForm === "form" && (
-            <Form />
-        )}
+
     </>
     
   )
