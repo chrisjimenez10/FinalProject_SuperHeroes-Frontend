@@ -1,9 +1,19 @@
+//SuperHero API Base URL
+const SUPERHERO_API_URL = import.meta.env.VITE_SUPERHERO_API_URL;
+
+//Variables
+let randomId = Math.floor(Math.random() * 731) + 1;
+let civilianName;
+let villainName;
+let durability;
+let strength;
+let image;
+
 class Villain {
-    constructor(firstName, lastName, villainName, superPower, strength, image){
-        this.firstName = firstName,
-        this.lastName = lastName,
+    constructor(civilianName, villainName, durability, strength, image){
+        this.civilianName = civilianName,
         this.villainName = villainName,
-        this.superPower = superPower,
+        this.durability = durability,
         this.strength = strength,
         this.image = image
     }
@@ -15,15 +25,25 @@ class Villain {
     }
 }
 
-const villain_one = new Villain("Mimi", "Jimenez", "La Valentona", "Licking", 4);
-// console.log(villain_one);
-
-const villain_two = new Villain("Wendy", "Jimenez", "Kirby", "Beam of Jello", 100);
-// console.log(villain_two);
-
-villain_one.strengthDecrease();
-(villain_one.strength);
-
 //TODO - Randomly generate a villain when player clicks "ready" button --> They will be redirected to the battle page and villain will appear there with stats and image
 
 //TODO - Connect object instances generated to data from SuperHero API --> url: https://www.superheroapi.com/#api-references
+
+const fetchVillain = async (id) => {
+    try{
+        const response = await fetch(`${SUPERHERO_API_URL}/${id}`);
+        const data = await response.json();
+        // console.log(data);
+        return data;
+    }catch(error){
+        console.error(error.message);
+    }
+};
+
+
+export {fetchVillain}
+
+
+
+
+

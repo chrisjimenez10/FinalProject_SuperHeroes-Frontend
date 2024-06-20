@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { SuperHeroesContext } from "../App";
+import { useNavigate } from "react-router-dom";
 
 const FightTeam = () => {
 
     const {superheroTeam, removeHeroFromTeam} = useContext(SuperHeroesContext);
+    const navigate = useNavigate();
 
   return (
     <>
@@ -19,7 +21,7 @@ const FightTeam = () => {
             })}
         </ol>
         {superheroTeam.length === 4 && (
-            <button>ready</button>
+            <button onClick={()=> {navigate("/battle")}}>ready</button>
         )}
     </>
 

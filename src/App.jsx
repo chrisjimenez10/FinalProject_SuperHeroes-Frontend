@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import SuperheroBarracks from "./components/SuperheroBarracks";
 import FightTeam from "./components/FightTeam";
 import Details from "./components/Details";
+import BattleVillain from "./components/BattleVillain";
 
 export const SuperHeroesContext = createContext(null);
 
@@ -43,6 +44,7 @@ const App = () => {
     setSuperheroTeam(superheroTeam.filter((item, index)=>{return index != heroId}));
   };
 
+
   return (
 
     <main>
@@ -53,6 +55,7 @@ const App = () => {
         <Route path="/superherobarracks" element={<SuperheroBarracks />} />
         <Route path="/team" element={<FightTeam />} />
         <Route path="/superherobarracks/:superheroId" element={<Details />} />
+        <Route path="/battle" element={<BattleVillain />} />
         <Route path="*" element={<h1>400 Bad Request - Whoops, there is nothing here...</h1>} />
       </Routes>
       </SuperHeroesContext.Provider>
