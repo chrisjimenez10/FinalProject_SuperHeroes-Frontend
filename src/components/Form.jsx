@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createSuperhero } from "../services/superheroService.js";
 import { useContext } from "react";
 import { SuperHeroesContext } from "../App.jsx";
 
 const Form = ({superheroToEdit, handleEditSuperhero}) => {
     const {fetchSuperheroesDatabase} = useContext(SuperHeroesContext);
+
+    const navigate = useNavigate();
 
     //State
     const [formData, setFormData] = useState({
@@ -49,8 +52,18 @@ const Form = ({superheroToEdit, handleEditSuperhero}) => {
 
         if(superheroToEdit){
             handleEditSuperhero(superheroToEdit.id, formData);
+            navigate("/superherobarracks");
         }else{
             handleCreateSuperhero(formData);
+            setFormData({
+                firstName: "",
+                lastName: "",
+                superName: "",
+                superPower: "",
+                strength: "",
+                isTeam: "",
+                villainName: "",
+            })
         }
     };
 

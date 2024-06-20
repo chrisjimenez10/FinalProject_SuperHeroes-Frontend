@@ -54,6 +54,7 @@ const Details = () => {
         <h3>Power: {singleSuperhero.superPower}</h3>
         <h3>Strength: {singleSuperhero.strength}</h3>
         <h3>Style: {singleSuperhero.isTeam ? "Team Player" : "Solo"}</h3>
+        <h3>Enemy: {singleSuperhero.villainName}</h3>
         <button onClick={()=> handleEdit(singleSuperhero)}>edit</button>
         <button onClick={()=> {handleDeleteSuperhero(singleSuperhero.id), navigate("/superherobarracks")}}>delete</button>
       </div>
