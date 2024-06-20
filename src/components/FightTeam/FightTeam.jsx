@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { SuperHeroesContext } from "../App";
+import { SuperHeroesContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 
 const FightTeam = () => {

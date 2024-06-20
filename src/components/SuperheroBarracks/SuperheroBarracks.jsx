@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useContext } from "react";
-import { SuperHeroesContext } from "../App";
+import { SuperHeroesContext } from "../../App";
 import { useNavigate } from "react-router-dom";
 
-import Form from "./Form";
+import Form from "../Form/Form";
 
 
 

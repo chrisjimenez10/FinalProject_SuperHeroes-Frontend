@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { SuperHeroesContext } from "../App";
+import { SuperHeroesContext } from "../../App";
 
 const Navbar = () => {
 

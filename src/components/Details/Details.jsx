@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { SuperHeroesContext } from "../App";
-import { editSuperhero, deleteSuperhero } from "../services/superheroService";
-import Form from "./Form";
+import { SuperHeroesContext } from "../../App";
+import { editSuperhero, deleteSuperhero } from "../../services/superheroService";
+import Form from "../Form/Form";
 
 const Details = () => {
 

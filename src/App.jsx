@@ -1,12 +1,12 @@
 import { createContext, useState } from "react";
 import {Routes, Route} from "react-router-dom";
 import { fetchSuperheroes } from "./services/superheroService";
-import Home from "./components/Home";
-import Navbar from "./components/Navbar";
-import SuperheroBarracks from "./components/SuperheroBarracks";
-import FightTeam from "./components/FightTeam";
-import Details from "./components/Details";
-import BattleVillain from "./components/BattleVillain";
+import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar/Navbar";
+import SuperheroBarracks from "./components/SuperheroBarracks/SuperheroBarracks";
+import FightTeam from "./components/FightTeam/FightTeam";
+import Details from "./components/Details/Details";
+import BattleVillain from "./components/BattleVillain/BattleVillain";
 
 export const SuperHeroesContext = createContext(null);
 

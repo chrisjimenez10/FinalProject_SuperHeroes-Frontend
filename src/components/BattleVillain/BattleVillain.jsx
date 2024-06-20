@@ -1,8 +1,8 @@
 
 import { useContext, useState, useEffect } from "react";
-import { SuperHeroesContext } from "../App";
-import {fetchVillain} from "../services/battlemonsterService";
-import { arrayOfStrength, sumOfStrength } from "../services/calculationServices";
+import { SuperHeroesContext } from "../../App";
+import {fetchVillain} from "../../services/battlemonsterService";
+import { arrayOfStrength, sumOfStrength } from "../../services/calculationServices";
 
 const BattleVillain = () => {
   

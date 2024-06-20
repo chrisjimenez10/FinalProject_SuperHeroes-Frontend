@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createSuperhero } from "../services/superheroService.js";
+import { createSuperhero } from "../../services/superheroService.js";
 import { useContext } from "react";
-import { SuperHeroesContext } from "../App.jsx";
+import { SuperHeroesContext } from "../../App.jsx";
 
 const Form = ({superheroToEdit, handleEditSuperhero}) => {
     const {fetchSuperheroesDatabase} = useContext(SuperHeroesContext);
