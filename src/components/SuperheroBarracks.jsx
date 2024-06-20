@@ -3,6 +3,8 @@ import { useContext } from "react";
 import { SuperHeroesContext } from "../App";
 import { useNavigate } from "react-router-dom";
 
+import Form from "./Form";
+
 
 
 
@@ -36,6 +38,7 @@ const SuperheroBarracks = () => {
             )
         })}
         </ul>
+        <Form />
     </>
     
   )
