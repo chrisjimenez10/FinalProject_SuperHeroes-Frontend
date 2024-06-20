@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { SuperHeroesContext } from "../App";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,9 @@ import Form from "./Form";
 
 const SuperheroBarracks = () => {
 
+    //State
+    const [renderForm, setRenderForm] = useState("");
+
     //Using useNavigate instance to send superhero data through route parameter
     const navigate = useNavigate();
 
@@ -20,6 +23,15 @@ const SuperheroBarracks = () => {
     useEffect(()=>{
         fetchSuperheroesDatabase();
     }, []);
+
+    const handleRenderForm = () => {
+        if(renderForm === ""){
+            setRenderForm("form");
+        }
+        if(renderForm === "form"){
+            setRenderForm("");
+        }
+    };
 
 
   return (
@@ -38,7 +50,10 @@ const SuperheroBarracks = () => {
             )
         })}
         </ul>
-        <Form />
+        <button onClick={()=> handleRenderForm()}>new superhero</button>
+        {renderForm === "form" && (
+            <Form />
+        )}
     </>
     
   )

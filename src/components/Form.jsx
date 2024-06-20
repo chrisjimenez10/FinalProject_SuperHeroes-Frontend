@@ -66,31 +66,31 @@ const Form = ({superheroToEdit, handleEditSuperhero}) => {
     <form onSubmit={handleFormSubmission}>
 
         <label htmlFor="firstName">First Name: </label>
-        <input id="firstName" name="firstName" value={formData.firstName} onChange={handleInputChange}></input>
+        <input id="firstName" name="firstName" type="text" value={formData.firstName} onChange={handleInputChange} required></input>
 
         <label htmlFor="lastName">Last Name: </label>
-        <input id="lastName" name="lastName" value={formData.lastName} onChange={handleInputChange}></input>
+        <input id="lastName" name="lastName" type="text" value={formData.lastName} onChange={handleInputChange} required></input>
 
         <label htmlFor="superName">Super Name: </label>
-        <input id="superName" name="superName" value={formData.superName} onChange={handleInputChange}></input>
+        <input id="superName" name="superName" type="text" value={formData.superName} onChange={handleInputChange} required></input>
 
         <label htmlFor="superPower">Super Power: </label>
-        <input id="superPower" name="superPower" value={formData.superPower} onChange={handleInputChange}></input>
+        <input id="superPower" name="superPower" value={formData.superPower} onChange={handleInputChange} required type="text"></input>
 
         <label htmlFor="strength">Strength: </label>
-        <input id="strength" name="strength" value={formData.strength} onChange={handleInputChange}></input>
+        <input id="strength" name="strength" type="number" value={formData.strength} onChange={handleInputChange} min="50" max="100" required placeholder="50 - 100"></input>
 
         <label htmlFor="isTeam">Team Player: </label>
-        <select id="isTeam" value={formData.isTeam} name="isTeam" onChange={handleInputChange}>
+        <select id="isTeam" value={formData.isTeam} name="isTeam" onChange={handleInputChange} required>
             <option value="">------ Select ------</option>
             <option value="true">True</option>
             <option value="false">False</option>
         </select>
 
         <label htmlFor="villainName">Villain: </label>
-        <input id="villainName" name="villainName" value={formData.villainName} onChange={handleInputChange}></input>
+        <input id="villainName" name="villainName" value={formData.villainName} onChange={handleInputChange} required></input>
         
-        <button type="submit">create</button>
+        <button type="submit" disabled={formData.firstName === "" || formData.lastName === "" || formData.superName === "" || formData.superPower === "" || formData.strength === "" || formData.isTeam === "" || formData.villainName === ""}>{superheroToEdit ? "edit" : "create"}</button>
     </form>
 
   )

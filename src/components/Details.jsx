@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { SuperHeroesContext } from "../App";
 import { editSuperhero, deleteSuperhero } from "../services/superheroService";
@@ -7,9 +7,11 @@ import Form from "./Form";
 const Details = () => {
 
     const {superheroes, fetchSuperheroesDatabase} = useContext(SuperHeroesContext);
+    const navigate = useNavigate();
 
     //State
     const [superheroToEdit, setSuperheroToEdit] = useState(null);
+    const [renderForm, setRenderForm] = useState("");
 
     //Route Parameter
     const {superheroId} = useParams();
@@ -18,14 +20,29 @@ const Details = () => {
     });
 
     //Functions
+    //PUT
     const handleEditSuperhero = async (id, heroData) => {
         await editSuperhero(id, heroData);
         fetchSuperheroesDatabase();
     };
     
     const handleEdit = (heroData) => {
-      setSuperheroToEdit(heroData);
-    }
+      if(renderForm === ""){
+        setRenderForm("form");
+        setSuperheroToEdit(heroData);
+      }
+      if(renderForm === "form"){
+        setRenderForm("");
+      }
+    };
+
+    //DELETE
+    const handleDeleteSuperhero = async (id) => {
+        await deleteSuperhero(id);
+        fetchSuperheroesDatabase();
+    };
+
+
 
   return (
 
@@ -38,13 +55,16 @@ const Details = () => {
         <h3>Strength: {singleSuperhero.strength}</h3>
         <h3>Style: {singleSuperhero.isTeam ? "Team Player" : "Solo"}</h3>
         <button onClick={()=> handleEdit(singleSuperhero)}>edit</button>
-        <button>delete</button>
+        <button onClick={()=> {handleDeleteSuperhero(singleSuperhero.id), navigate("/superherobarracks")}}>delete</button>
       </div>
 
-      <Form 
-      superheroToEdit={superheroToEdit}
-      handleEditSuperhero={handleEditSuperhero}
-      />
+      {renderForm === "form" && (
+          <Form 
+          superheroToEdit={superheroToEdit}
+          handleEditSuperhero={handleEditSuperhero}
+          />
+      )}
+ 
 
     </>
 
