@@ -15,6 +15,8 @@ const FightTeam = () => {
                 return(
                     <li key={index}>
                         <dt>{superhero.superName}</dt>
+                        <dd>Strength: {superhero.strength}</dd>
+                        <dd>Power: {superhero.superPower}</dd>
                         <button onClick={()=> removeHeroFromTeam(index)}>-</button>
                     </li>
                 )
