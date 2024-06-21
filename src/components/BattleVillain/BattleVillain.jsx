@@ -1,4 +1,4 @@
-
+import styles from "./BattleVillain.module.css";
 import { useContext, useState, useEffect } from "react";
 import { SuperHeroesContext } from "../../App";
 import {fetchVillain} from "../../services/battlemonsterService";
@@ -62,42 +62,53 @@ const villainData = async (id) => {
 
 
   return (
-    <>
-        <h1>Battle the Villain</h1>
-        <h3>Team - Total Strength: {superheroTeam.length === 0 ? 0 : parseInt(teamStrengthAverage / superheroTeam.length)}</h3>
-        <ul>
-          {superheroTeam.map((superhero)=>{
-            return(
-              <li key={superhero.id}>
-                <dt>{superhero.superName}</dt>
-                <dd>Power: {superhero.superPower}</dd>
-                <dd>Strength: {superhero.strength}</dd>
-              </li>
-            )
-          })}
-        </ul>
-        <button onClick={()=> handleNewVillain()}>villain</button>
-        <button>fight</button>
+    <div className={styles.mainContainer}>
 
-        <h3>VS.</h3>
+        <div>
+          <h1 className={styles.title}>Battle the Villain</h1>
+          <h3 className={styles.subTitle}>Team - Total Strength: <span style={{color: "black", backgroundColor: "white"}}>{superheroTeam.length === 0 ? 0 : parseInt(teamStrengthAverage / superheroTeam.length)}</span></h3>
+        </div>
 
-        {villainExists ?  
-          <>
-            <h3>{villainName}</h3>
-            <ul>
-              <li>
-                <dt>Civilain Name: {civilianName}</dt>
-                <dd>Durability: {durability * 4}</dd>
-                <dd>Strength: {strength * 4}</dd>
-                <img src={image} alt="villain-image" width="300px" height="300px"/>
-              </li>
-            </ul>
-          </>
-        :
-        <img src={"src/assets/images/question-mark.jpg"} alt="big-questionmark" width="300px" height="300px"/>
-        }
+        <div>
+          <ul className={styles.listContainer}>
+            {superheroTeam.map((superhero)=>{
+              return(
+                <li key={superhero.id} className={styles.listItems}>
+                  <dt>{superhero.superName}</dt>
+                  <dd style={{color: "white"}}>Power: <span style={{color: "lightblue"}}>{superhero.superPower}</span></dd>
+                  <dd style={{color: "white"}}>Strength: <span style={{color: "lightgreen"}}>{superhero.strength}</span></dd>
+                </li>
+              )
+            })}
+          </ul>
+          
+        </div>
 
-    </>
+        <div className={styles.middle}>
+          <button onClick={()=> handleNewVillain()} className={styles.button}>villain</button>
+          <button className={styles.button} disabled={true}>fight</button>
+          <h3>VS.</h3>
+        </div>
+
+        <div className={styles.villainContainer}>
+          {villainExists ?  
+            <div>
+              <h3 className={styles.villainName}>{villainName}</h3>
+              <ul className={styles.villainIcon}>
+                <li>
+                  <dt><span style={{color: "white"}}>Civilain Name: </span>{civilianName}</dt>
+                  <dd style={{color: "white"}}>Durability: <span style={{color: "red"}}>{durability * 4}</span></dd>
+                  <dd style={{color: "white"}}>Strength: <span style={{color: "lightgreen"}}>{strength * 4}</span></dd>
+                  <img src={image} alt="villain-image" className={styles.image}/>
+                </li>
+              </ul>
+            </div>
+          :
+          <img src={"src/assets/images/question-mark.jpg"} alt="big-questionmark" className={styles.image}/>
+          }
+        </div>
+
+    </div>
 
   )
 }

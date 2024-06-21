@@ -12,7 +12,7 @@ const FightTeam = () => {
 
     <div className={styles.mainContainer}>
         <h1 className={styles.title}>Fight Team</h1>
-        {superheroTeam.length === 0 ? <h2>-- Empty, please select SuperHeroes --</h2> 
+        {superheroTeam.length === 0 ? <h2 style={{textShadow: "2px 2px 2px black", color: "white"}}>-- Empty, please select SuperHeroes --</h2> 
         :
             <ol>
         {superheroTeam.map((superhero, index)=>{
