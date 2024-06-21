@@ -21,7 +21,7 @@ const FightTeam = () => {
                     <dt>{superhero.superName}</dt>
                     <dd style={{color: "white"}}>Strength: <span style={{color: "lightgreen"}}>{superhero.strength}</span></dd>
                     <dd style={{color: "white"}}>Power: <span style={{color: "lightblue"}}>{superhero.superPower}</span></dd>
-                    <button onClick={()=> removeHeroFromTeam(index)} className={styles.button}>-</button>
+                    <button onClick={()=> removeHeroFromTeam(index)} className={styles.button}>remove</button>
                 </li>
             )
         })}
