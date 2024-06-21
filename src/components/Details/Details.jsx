@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { SuperHeroesContext } from "../../App";
 import { editSuperhero, deleteSuperhero } from "../../services/superheroService";
 import Form from "../Form/Form";
+import styles from "./Details.module.css";
 
 const Details = () => {
 
@@ -46,28 +47,30 @@ const Details = () => {
 
   return (
 
-    <>
+    <div className={styles.mainContainer}>
 
       <div>
-        <h1><img src="../src/assets/images/list-icon.png" width="30px"/> {singleSuperhero.superName}</h1>
-        <h3>Civilian Name: {singleSuperhero.firstName} {singleSuperhero.lastName}</h3>
-        <h3>Power: {singleSuperhero.superPower}</h3>
-        <h3>Strength: {singleSuperhero.strength}</h3>
-        <h3>Style: {singleSuperhero.isTeam ? "Team Player" : "Solo"}</h3>
-        <h3>Enemy: {singleSuperhero.villainName}</h3>
-        <button onClick={()=> handleEdit(singleSuperhero)}>edit</button>
-        <button onClick={()=> {handleDeleteSuperhero(singleSuperhero.id), navigate("/superherobarracks")}}>delete</button>
+        <h1 className={styles.title}><img src="../src/assets/images/list-icon.png" width="30px" style={{backgroundColor: "white"}}/> {singleSuperhero.superName}</h1>
+        <h3>Civilian Name: <span style={{color: "rgb(224, 167, 94)"}}>{singleSuperhero.firstName} {singleSuperhero.lastName}</span></h3>
+        <h3>Power: <span style={{color: "lightblue"}}>{singleSuperhero.superPower}</span></h3>
+        <h3>Strength: <span style={{color: "lightgreen"}}>{singleSuperhero.strength}</span></h3>
+        <h3>Style: <span style={{color: "blue"}}>{singleSuperhero.isTeam ? "Team Player" : "Solo"}</span></h3>
+        <h3>Enemy: <span style={{color: "red"}}>{singleSuperhero.villainName}</span></h3>
+        <button onClick={()=> handleEdit(singleSuperhero)} className={styles.button}>edit</button>
+        <button onClick={()=> {handleDeleteSuperhero(singleSuperhero.id), navigate("/superherobarracks")}} className={styles.button}>delete</button>
       </div>
 
-      {renderForm === "form" && (
-          <Form 
-          superheroToEdit={superheroToEdit}
-          handleEditSuperhero={handleEditSuperhero}
-          />
-      )}
+      <div>      
+        {renderForm === "form" && (
+            <Form 
+            superheroToEdit={superheroToEdit}
+            handleEditSuperhero={handleEditSuperhero}
+            />
+        )}
+      </div>
  
 
-    </>
+    </div>
 
   )
 }
