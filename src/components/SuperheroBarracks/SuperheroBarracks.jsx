@@ -36,28 +36,37 @@ const SuperheroBarracks = () => {
 
   return (
 
-    <>
-        <h1>SuperHero Barracks</h1>
-        <h3>Total SuperHeroes: {superheroes.length}</h3>
+    <div className={styles.mainContainer}>
 
-        <button onClick={()=> handleRenderForm()}>new superhero</button>
-        {renderForm === "form" && (
-            <Form />
-        )}
+        <div>
+            <h1 className={styles.title}>SuperHero Barracks</h1>
+            <h3 className={styles.subTitle}>Total SuperHeroes: <span style={{color: "black", backgroundColor: "white"}}>{superheroes.length}</span></h3>
+        </div>
 
-        <ul style={{listStyleImage: "url(src/assets/images/list-supericon.png)"}}>
-        {superheroes.map((superhero)=>{
-            return(
-                <li key={superhero.id}>
-                    <dt>{superhero.superName}</dt>
-                    <button onClick={()=> addHeroToTeam(superhero)} disabled={superheroTeam.length === 4}>+</button>
-                    <button onClick={()=> navigate(`/superherobarracks/${superhero.id}`)}>details</button>
-                </li>
-            )
-        })}
-        </ul>
+        <div>
+            <button onClick={()=> handleRenderForm()} className={styles.button}>new superhero</button>
+            {renderForm === "form" && (
+                <Form />
+            )}
+        </div>
 
-    </>
+        <div >
+            <ul className={styles.listContainer}>
+            {superheroes.map((superhero)=>{
+                return(
+                    <li key={superhero.id} className={styles.listItems}>
+                        <dt className={styles.text}>{superhero.superName}</dt>
+                        <button onClick={()=> addHeroToTeam(superhero)} disabled={superheroTeam.length === 4} className={styles.button}>+</button>
+                        <button onClick={()=> navigate(`/superherobarracks/${superhero.id}`)} className={styles.button}>details</button>
+                    </li>
+                )
+            })}
+            </ul>
+        </div>
+
+        <img src="src/assets/images/barracks.jpg" className={styles.image}/>
+
+    </div>
     
   )
 }
