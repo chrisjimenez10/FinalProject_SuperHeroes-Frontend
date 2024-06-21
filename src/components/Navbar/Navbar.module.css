@@ -1,0 +1,17 @@
+.navLinks{
+    background-color: white;
+    color: black;
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    box-shadow: 2px 2px 2px black;
+
+}
+
+.navLinks:hover{
+    background-color: black;
+    color: white;
+    box-shadow: 1px 1px 1px white;
+}
