@@ -1,0 +1,17 @@
+.image {
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px black;
+}
+
+.divContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    background-color: rgb(245, 231, 178);
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 4px black;
+}

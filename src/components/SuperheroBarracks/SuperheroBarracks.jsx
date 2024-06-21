@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { SuperHeroesContext } from "../../App";
 import { useNavigate } from "react-router-dom";
-
 import Form from "../Form/Form";
+import styles from "./SuperheroBarracks.module.css";
 
 
 

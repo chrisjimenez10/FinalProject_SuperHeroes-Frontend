@@ -7,6 +7,7 @@ import SuperheroBarracks from "./components/SuperheroBarracks/SuperheroBarracks"
 import FightTeam from "./components/FightTeam/FightTeam";
 import Details from "./components/Details/Details";
 import BattleVillain from "./components/BattleVillain/BattleVillain";
+import "./App.module.css";
 
 export const SuperHeroesContext = createContext(null);
 

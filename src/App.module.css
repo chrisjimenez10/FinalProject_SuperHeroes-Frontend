@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+* {
+  background-color: rgb(151, 49, 49);
+  font-family: "Bangers", system-ui;
+  font-weight: lighter;
+}
