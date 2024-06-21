@@ -1,5 +1,6 @@
 .form {
-    color: rgb(245, 231, 178);
+    color: rgb(249, 214, 137);
+    text-shadow: 2px 2px 1px black;
 }
 
 input, .select, option, .button {
