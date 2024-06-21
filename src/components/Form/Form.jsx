@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { createSuperhero } from "../../services/superheroService.js";
 import { useContext } from "react";
 import { SuperHeroesContext } from "../../App.jsx";
+import styles from "./Form.module.css";
 
 const Form = ({superheroToEdit, handleEditSuperhero}) => {
     const {fetchSuperheroesDatabase} = useContext(SuperHeroesContext);
@@ -76,10 +77,10 @@ const Form = ({superheroToEdit, handleEditSuperhero}) => {
 
   return (
 
-    <form onSubmit={handleFormSubmission}>
+    <form onSubmit={handleFormSubmission} className={styles.form}>
 
         <label htmlFor="firstName">First Name: </label>
-        <input id="firstName" name="firstName" type="text" value={formData.firstName} onChange={handleInputChange} required></input>
+        <input id="firstName" name="firstName" type="text" value={formData.firstName} onChange={handleInputChange} required className={styles.input}></input>
 
         <label htmlFor="lastName">Last Name: </label>
         <input id="lastName" name="lastName" type="text" value={formData.lastName} onChange={handleInputChange} required></input>
@@ -91,10 +92,10 @@ const Form = ({superheroToEdit, handleEditSuperhero}) => {
         <input id="superPower" name="superPower" value={formData.superPower} onChange={handleInputChange} required type="text"></input>
 
         <label htmlFor="strength">Strength: </label>
-        <input id="strength" name="strength" type="number" value={formData.strength} onChange={handleInputChange} min="50" max="100" required placeholder="50 - 100"></input>
+        <input id="strength" name="strength" type="number" value={formData.strength} onChange={handleInputChange} min="50" max="100" required placeholder="50-100"></input>
 
         <label htmlFor="isTeam">Team Player: </label>
-        <select id="isTeam" value={formData.isTeam} name="isTeam" onChange={handleInputChange} required>
+        <select id="isTeam" value={formData.isTeam} name="isTeam" onChange={handleInputChange} required className={styles.select}>
             <option value="">------ Select ------</option>
             <option value="true">True</option>
             <option value="false">False</option>
@@ -103,7 +104,7 @@ const Form = ({superheroToEdit, handleEditSuperhero}) => {
         <label htmlFor="villainName">Villain: </label>
         <input id="villainName" name="villainName" value={formData.villainName} onChange={handleInputChange} required></input>
         
-        <button type="submit" disabled={formData.firstName === "" || formData.lastName === "" || formData.superName === "" || formData.superPower === "" || formData.strength === "" || formData.isTeam === "" || formData.villainName === ""}>{superheroToEdit ? "edit" : "create"}</button>
+        <button type="submit" disabled={formData.firstName === "" || formData.lastName === "" || formData.superName === "" || formData.superPower === "" || formData.strength === "" || formData.isTeam === "" || formData.villainName === ""} className={styles.button}>{superheroToEdit ? "edit" : "create"}</button>
     </form>
 
   )

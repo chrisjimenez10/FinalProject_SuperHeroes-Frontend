@@ -1,0 +1,14 @@
+.form {
+    color: rgb(245, 231, 178);
+}
+
+input, .select, option, .button {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.button:hover{
+    cursor: pointer;
+    transform: scale(1.08);
+}
+

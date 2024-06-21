@@ -43,7 +43,7 @@ const SuperheroBarracks = () => {
             <h3 className={styles.subTitle}>Total SuperHeroes: <span style={{color: "black", backgroundColor: "white"}}>{superheroes.length}</span></h3>
         </div>
 
-        <div>
+        <div className={styles.form}>
             <button onClick={()=> handleRenderForm()} className={styles.button}>new superhero</button>
             {renderForm === "form" && (
                 <Form />
